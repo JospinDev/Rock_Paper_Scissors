@@ -1,30 +1,52 @@
 const CC=['Rock','Paper','Scissor']
 
 let humanScore=0,computerScore=0;
+const words=['ROCK','PAPER','SCISSOR','GAME','VS'];
+const titleElement=document.getElementById('game-title')
 
-// document.getElementById('result').textContent=result;
+let wordIndex=0;
+let letterIndex=0;
 
-if (result === "Uratsinzwe") {
-    div1.style.borderColor = getRandomColor();
-  } else {
-    // Réinitialiser la bordure si le robot ne gagne pas
-    div1.style.borderColor = 'initial';
-  }
+function displayLetter(){
+    if(wordIndex<words.length){
+        const currentWord=words[wordIndex];
+//display the current letter
+        titleElement.textContent +=currentWord[letterIndex];
+        letterIndex++;
 
+        if(letterIndex === currentWord.length){
+            wordIndex++;//move to the next word
 
+            letterIndex=0;//reset letter  index
+            if(wordIndex<words.length){
+                setTimeout(() => {
+                    titleElement.textContent='';//clear the text
+    
+                    setTimeout(displayLetter,800);//wait before displaying the next word
+                },3000);//show each word for 1 sec
+            }else{
+    
+                setTimeout(displayLetter,500);//Adjusting timing for letter display
+            }
+        }else{
+            setTimeout(displayLetter,300)
+        }
+         
 
-
-
-// Fonction pour générer une couleur aléatoire au format hexadécimal
-function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random()  
-   * 16)];
     }
-    return color;
-  }
+}
+
+displayLetter();
+// Fonction pour générer une couleur aléatoire au format hexadécimal
+// function getRandomColor() {
+//     const letters = '0123456789ABCDEF';
+//     let color = '#';
+//     for (let i = 0; i < 6; i++) {
+//       color += letters[Math.floor(Math.random()  
+//    * 16)];
+//     }
+//     return color;
+//   }
  
   // Sélectionner l'élément H1
 const h1 = document.querySelector('h1');
@@ -60,7 +82,6 @@ function playround(humanChoice){
     let robotResult='';
     const computerChoice=getComputerChoice();
     document.getElementById('computer-choice').textContent='Robot Chose: '+computerChoice.charAt(0).toUpperCase()+computerChoice.slice(1);
-    document.getElementById('result').textContent='Robot Chose: '+computerChoice.charAt(0).toUpperCase()+computerChoice.slice(1);
 
     if (humanChoice===computerChoice){
         
