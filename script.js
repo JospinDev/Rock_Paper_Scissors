@@ -1,4 +1,5 @@
 const CC=['Rock','Paper','Scissor']
+
 let humanScore=0,computerScore=0;
 
 // document.getElementById('result').textContent=result;
@@ -56,48 +57,58 @@ function getHumainChoice(choice) {
 
 function playround(humanChoice){
     let result='';
+    let robotResult='';
     const computerChoice=getComputerChoice();
-    
+    document.getElementById('computer-choice').textContent='Robot Chose: '+computerChoice.charAt(0).toUpperCase()+computerChoice.slice(1);
+    document.getElementById('result').textContent='Robot Chose: '+computerChoice.charAt(0).toUpperCase()+computerChoice.slice(1);
+
     if (humanChoice===computerChoice){
         
-        result='Mwahisemwo ibisa';
+        result='Mwacaguye ibisa';
+        robotResult='Mwacaguye ibisa'
         console.log("Mwahisemwo ibisa");
-
+    
     }else if(humanChoice==='Rock' && computerChoice==='Scissor'){
             console.log('You won, Rock beat Scissor')
             result='Uratsinze';
+            robotResult='Uratsinzwe';
             humanScore=humanScore+1;
             console.log('Human Score :'+humanScore+'===='+'Computer Score: '+computerScore)
     }
 
     else if(humanChoice==='Scissor' && computerChoice==='Rock'){
         console.log('You lose, Rock beat Scissor')
-        result='Uratsinzwe'
+        result='Uratsinzwe';
+        robotResult='Uratsinze';
         computerScore=computerScore+1;
         div1.at
         console.log('Human Score :'+humanScore+'===='+'Computer Score: '+computerScore)
 }
 else if(humanChoice==='Rock' && computerChoice ==='Paper'){
     console.log('You Lose, Paper beat Rock')
-    result='Uratsinzwe'
+    result='Uratsinzwe';
+    robotResult='Uratsinze';
     computerScore=computerScore+1;
     console.log('Human Score :'+humanScore+'===='+'Computer Score: '+computerScore)
 }
 else if(humanChoice==='Paper' && computerChoice ==='Rock'){
     console.log('You Won, Paper beat Rock')
     result='Uratsinze';
+    robotResult='Uratsinzwe';
     humanScore=humanScore+1;
     console.log('Human Score :'+humanScore+'===='+'Computer Score: '+computerScore)
 } 
 else if(humanChoice==='Paper' && computerChoice ==='Scissor'){
     console.log('You Lose, Scissor beat Paper');
     result='Uratsinzwe'
+    robotResult='Uratsinze';
     computerScore=computerScore+1;
     console.log('Human Score :'+humanScore+'===='+'Computer Score: '+computerScore)
 }
 else if(humanChoice ==='Scissor' && computerChoice ==='Paper'){
     console.log('You Won, Scissor beat Paper');
     result='Uratsinze';
+    robotResult='Uratsinzwe';
     humanScore=humanScore+1;
     console.log('Human Score :'+humanScore+'===='+'Computer Score: '+computerScore)
 }
@@ -112,6 +123,7 @@ console.log("Thank You for Playing!");
 
 updateScore();
 displayResult(result);
+document.getElementById('robot-result').textContent=robotResult;//Use a separate div for robot result
 
     }
 alert('Thank You For Playing!') 
