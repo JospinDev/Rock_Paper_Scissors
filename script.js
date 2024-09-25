@@ -1,4 +1,40 @@
-const CC=['Rock','Paper','Scissor'];
+const CC=['Rock','Paper','Scissor']
+let humanScore=0,computerScore=0;
+
+// document.getElementById('result').textContent=result;
+
+if (result === "Uratsinzwe") {
+    div1.style.borderColor = getRandomColor();
+  } else {
+    // Réinitialiser la bordure si le robot ne gagne pas
+    div1.style.borderColor = 'initial';
+  }
+
+
+
+
+
+// Fonction pour générer une couleur aléatoire au format hexadécimal
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random()  
+   * 16)];
+    }
+    return color;
+  }
+ 
+  // Sélectionner l'élément H1
+const h1 = document.querySelector('h1');
+
+// Attribuer une couleur aléatoire à l'élément H1
+
+setInterval(() => {
+    h1.style.color = getRandomColor();
+}, 1000); // Change la couleur toutes les 1 seconde
+
+
 function getComputerChoice(){
     const randomIndex=Math.floor(Math.random()*CC.length);
 
@@ -6,55 +42,62 @@ function getComputerChoice(){
 }
 
 
-function getHumainChoice() {
-    let userCh=prompt("What is Your Choice(Rock, Paper,Scissor): ");
+function getHumainChoice(choice) {
+    // let userCh=prompt("What is Your Choice(Rock, Paper,Scissor): ");
 
-    while(!CC.includes(userCh)){
-        userCh=prompt("Invalid choice.Please enter Rock, Paper, Scissor: ");
-    }
+    // while(!CC.includes(userCh)){
+    //     userCh=prompt("Invalid choice.Please enter Rock, Paper, Scissor: ");
+    // }
     
-    return userCh;
+    return choice;
 }
-let humanScore=0,computerScore=0;
-function playround(){
-    
 
-    let continuePlaying=true;
-    while(continuePlaying){
-        const humanChoice=getHumainChoice();
-        const computerChoice=getComputerChoice();
+
+
+function playround(humanChoice){
+    let result='';
+    const computerChoice=getComputerChoice();
+    
     if (humanChoice===computerChoice){
         
+        result='Mwahisemwo ibisa';
         console.log("Mwahisemwo ibisa");
 
     }else if(humanChoice==='Rock' && computerChoice==='Scissor'){
             console.log('You won, Rock beat Scissor')
+            result='Uratsinze';
             humanScore=humanScore+1;
             console.log('Human Score :'+humanScore+'===='+'Computer Score: '+computerScore)
     }
 
     else if(humanChoice==='Scissor' && computerChoice==='Rock'){
         console.log('You lose, Rock beat Scissor')
+        result='Uratsinzwe'
         computerScore=computerScore+1;
+        div1.at
         console.log('Human Score :'+humanScore+'===='+'Computer Score: '+computerScore)
 }
 else if(humanChoice==='Rock' && computerChoice ==='Paper'){
     console.log('You Lose, Paper beat Rock')
+    result='Uratsinzwe'
     computerScore=computerScore+1;
     console.log('Human Score :'+humanScore+'===='+'Computer Score: '+computerScore)
 }
 else if(humanChoice==='Paper' && computerChoice ==='Rock'){
     console.log('You Won, Paper beat Rock')
+    result='Uratsinze';
     humanScore=humanScore+1;
     console.log('Human Score :'+humanScore+'===='+'Computer Score: '+computerScore)
 } 
 else if(humanChoice==='Paper' && computerChoice ==='Scissor'){
     console.log('You Lose, Scissor beat Paper');
+    result='Uratsinzwe'
     computerScore=computerScore+1;
     console.log('Human Score :'+humanScore+'===='+'Computer Score: '+computerScore)
 }
 else if(humanChoice ==='Scissor' && computerChoice ==='Paper'){
     console.log('You Won, Scissor beat Paper');
+    result='Uratsinze';
     humanScore=humanScore+1;
     console.log('Human Score :'+humanScore+'===='+'Computer Score: '+computerScore)
 }
@@ -65,9 +108,21 @@ else{
     console.log("Computer Score: "+computerScore);
 }
 
-continuePlaying=confirm("Do you want to play again?");
-    }
-    console.log("Thank You for Playing!");
+console.log("Thank You for Playing!");
 
+updateScore();
+displayResult(result);
+
+    }
+alert('Thank You For Playing!') 
+
+
+function updateScore(){
+    document.getElementById('human-score').textContent=humanScore;
+    document.getElementById('computer-score').textContent=computerScore
 }
-playround();
+
+function displayResult(result){
+    document.getElementById('result').textContent=result;
+}
+

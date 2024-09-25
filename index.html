@@ -3,10 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="pngwing.com.png">
     <title>Rock Paper Scissors Game</title>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a0de549098.js" crossorigin="anonymous"></script>
 </head>
 <body>
     
+    <div class="container">
+        <h1>Rock Paper Scissors</h1>
+
+        <div class="scoreboard">
+            <div>Human Score: <span id="human-score">0</span></div>
+           
+        </div>
+        <div class="choices">
+            <button onclick="playround('Rock')" class="choice-button">
+                <img src="https://e7.pngegg.com/pngimages/422/99/png-clipart-rock-paper-scissors-computer-icons-scissors-game-white-thumbnail.png" class="choice-image" alt="Rock">
+            </button>
+            <button onclick="playround('Paper')" class="choice-button">
+                <img src="https://w7.pngwing.com/pngs/348/695/png-transparent-rock-paper-scissors-rock-paper-scissors-lizard-spock-rock-paper-scissors-llc-hands-hand-love-game-people-thumbnail.png" class="choice-image" alt="Paper">
+            </button>
+            <button onclick="playround('Scissor')" class="choice-button">
+                <img src="https://w7.pngwing.com/pngs/1002/772/png-transparent-rock-paper-scissors-scissors-angle-technic-scissors-thumbnail.png" class="choice-image" alt="Scissor">
+            </button>
+        </div>
+        <div id='result'></div>
+    </div>
+
+    <div class="container1" id="robot">
+        <div>Computer Score: <span id="computer-score">0</span></div>
+        <img src="https://w7.pngwing.com/pngs/861/645/png-transparent-humanoid-robot-artificial-intelligence-robot-electronics-microphone-human-thumbnail.png" class="choice-image" alt="Robot">
+        <div id='result'></div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <ul>
+                <li>
+                    <a href="https://github.com/JospinDev" target="_blank">
+                        <i class="fa fa-github"></i>
+                        GitHub
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:williamjospin1@gmail.com">
+                        <i class="fa fa-envelope"></i>
+                        Email
+                    </a>
+                </li>
+                <li>
+                    <a href="tel:+25765805506">
+                        <i class="fa fa-phone"></i>
+                        Phone
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
